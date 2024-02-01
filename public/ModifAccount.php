@@ -11,15 +11,13 @@ $webPage = new Webpage();
 $webPage->setTitle('Modif 15aine');
 
 $solde = $_SESSION['valeurDep'] ?? 0;
-$interet = $_SESSION['result'] ?? 0;
-$count = 0;
-if ($_SESSION['duree'] and $count != 1) {
-    $duree = ($_SESSION['duree'] * 24);
-    $quinzaine = 1;
-    $count += 1;
-}
+$interet = $_SESSION['result'];
 
-if ($duree) {
+$quinzaine = $_SESSION['quinzaine'] ?? 1;
+if ($quinzaine == 1)
+    $_SESSION['duree'] *= 24;
+
+if ($_SESSION['duree'] > 0) {
     $webPage->appendContent(
         <<<HTML
 <p>Voici votre solde actuel : $solde</p>
@@ -38,18 +36,22 @@ if ($duree) {
             <button type="submit">Calculer</button>
         </form>
     </div>
+<p> Les interets totaux actuel sont de : {$_SESSION['result']}</p>
 HTML
     );
+
+    $_SESSION['quinzaine'] = $quinzaine + 1;
+    $_SESSION['duree'] -= 1;
 } else {
     $total = $solde + $interet;
+    $_SESSION['quinzaine'] = 1;
     $webPage->appendContent(
         <<<HTML
 <p>C'est fini voici votre argent : $total €</p>
 <p>Cette année vous avez perçu : $interet €</p>
+
 HTML
     );
 }
-$quinzaine += 1;
-$duree -= 1;
 echo $webPage->toHTML();
 exit();

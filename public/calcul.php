@@ -4,8 +4,6 @@ require_once('../autoload.php');
 
 session_start();
 
-
-echo var_dump($_POST['interetTaux']);
 if ($_POST['vers'] != "") {
     $_SESSION['valeurDep'] = ($_SESSION['valeurDep'] ?? 0) + $_POST['vers'];
 }
