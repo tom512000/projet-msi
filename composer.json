@@ -2,7 +2,8 @@
     "name": "letom/projet-msi",
     "type": "project",
     "require": {
-        "php-cs-fixer/shim": "^3.48"
+        "php-cs-fixer/shim": "^3.48",
+      "ext-http": "*"
     },
     "autoload": {
         "psr-4": {
