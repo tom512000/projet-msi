@@ -2,16 +2,16 @@
 
 declare(strict_types=1);
 
-echo <<<HTML
-<!doctype html>
-<html lang="fr">
-    <head>
-        <meta charset='utf-8'>
-        <meta name='viewport' content='width=device-width, initial-scale=1'>
-        <title>Ok</title>
-    </head>
-    <body>
+require_once('../autoload.php');
 
-    </body>
-</html>
-HTML;
+$webPage = new Webpage();
+
+$webPage->setTitle('ll');
+
+$webPage->appendContent(
+    <<<HTML
+        Pd
+HTML
+);
+
+echo $webPage->toHTML();
