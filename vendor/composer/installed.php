@@ -1,9 +1,9 @@
 <?php return array(
     'root' => array(
         'name' => 'letom/projet-msi',
-        'pretty_version' => '1.0.0+no-version-set',
-        'version' => '1.0.0.0',
-        'reference' => NULL,
+        'pretty_version' => 'dev-main',
+        'version' => 'dev-main',
+        'reference' => 'b39ca3fd9593bf7075e9e12512ebc3566b2586ef',
         'type' => 'project',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -17,9 +17,9 @@
             ),
         ),
         'letom/projet-msi' => array(
-            'pretty_version' => '1.0.0+no-version-set',
-            'version' => '1.0.0.0',
-            'reference' => NULL,
+            'pretty_version' => 'dev-main',
+            'version' => 'dev-main',
+            'reference' => 'b39ca3fd9593bf7075e9e12512ebc3566b2586ef',
             'type' => 'project',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
