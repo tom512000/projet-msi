@@ -1,5 +1,9 @@
 <?php
 
+declare(strict_types=1);
+
+require_once('../autoload.php');
+
 session_start();
 
 if (isset($_POST['valeurDep'], $_POST['tauxInteret'], $_POST['duree'])) {
@@ -13,7 +17,24 @@ if (isset($_POST['valeurDep'], $_POST['tauxInteret'], $_POST['duree'])) {
     header("Location: ModifAccount.php");
     exit();
 } else {
-    echo "Erreur : Toutes les données nécessaires n'ont pas été fournies.";
+    $webPage = new Webpage();
+
+    $webPage->setTitle('Erreur');
+
+    $webPage->appendCssUrl('css/style.css');
+
+    $webPage->appendContent(
+        <<<HTML
+        <form>
+                <h1 class="h3 mb-3 font-weight-normal">ERREUR</h1>
+    
+                <div class="mb-3">
+                    Toutes les données nécessaires n'ont pas été fournies.
+                </div>
+            </form>
+        HTML
+        );
+    
+    echo $webPage->toHTML();
     exit();
 }
-

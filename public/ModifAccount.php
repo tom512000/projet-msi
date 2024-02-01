@@ -8,7 +8,9 @@ session_start();
 
 $webPage = new Webpage();
 
-$webPage->setTitle('Modif 15aine');
+$webPage->setTitle('Calculs quinzaines');
+
+$webPage->appendCssUrl('css/style.css');
 
 $solde = $_SESSION['valeurDep'] ?? 0;
 $interet = $_SESSION['result'];
@@ -19,11 +21,10 @@ if ($quinzaine == 1)
 
 if ($_SESSION['duree'] > 0) {
     $webPage->appendContent(
-        <<<HTML
-<p>Voici votre solde actuel : $solde</p>
-<p>Vous êtes à la $quinzaine quinzaine</p>
-    <div>
-        <form action="calcul.php" method="post">
+    <<<HTML
+    <form action="calcul.php" method="post">
+            <h1 class="h3 mb-3 font-weight-normal">QUINZAINE N°{$quinzaine}</h1>
+
             <label for="vers">Faire un versement (optionnel)</label>
             <input type="number" id="vers" name="vers"><br><br>
             
@@ -32,12 +33,15 @@ if ($_SESSION['duree'] > 0) {
             
             <label for="interetTaux">Nouveau taux d'intérêt (optionnel)</label>
             <input type="number" id="interetTaux" name="interetTaux"><br><br>
-            
-            <button type="submit">Calculer</button>
+
+            <button type="submit">Recalculer</button>
+
+            <div class="mb-3">
+                Les intérêts totaux actuels sont de <span>{$_SESSION['result']} euros</span>.<br>
+                Le solde actuel est de <span>{$solde} euros</span>.
+            </div>
         </form>
-    </div>
-<p> Les interets totaux actuel sont de : {$_SESSION['result']}</p>
-HTML
+    HTML
     );
 
     $_SESSION['quinzaine'] = $quinzaine + 1;
@@ -46,12 +50,18 @@ HTML
     $total = $solde + $interet;
     $_SESSION['quinzaine'] = 1;
     $webPage->appendContent(
-        <<<HTML
-<p>C'est fini voici votre argent : $total €</p>
-<p>Cette année vous avez perçu : $interet €</p>
+    <<<HTML
+    <form>
+            <h1 class="h3 mb-3 font-weight-normal">BILAN DES INTÉRÊTS</h1>
 
-HTML
+            <div class="mb-3">
+                Vous avez au total <span>{$total} euros</span>.<br>
+                Cette année, vous avez perçu <span>{$interet} euros</span>.
+            </div>
+        </form>
+    HTML
     );
 }
+
 echo $webPage->toHTML();
 exit();

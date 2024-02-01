@@ -1,0 +1,78 @@
+@import url('https://fonts.googleapis.com/css2?family=Lexend:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap');
+
+html {
+    width: 100%;
+    height: 100%;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    background-color: #ebebeb;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    width: 370px;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    background-color: white;
+}
+
+form > h1 {
+    text-align: center;
+    font-family: 'Lexend', sans-serif;
+}
+
+form > label {
+    margin-top: 5px;
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: large;
+}
+
+form > input {
+    height: 20px;
+    font-family: 'Lexend', sans-serif;
+}
+
+form > button {
+    margin-top: 5px;
+    font-family: 'Lexend', sans-serif;
+    text-decoration: none;
+    text-transform: uppercase;
+    color: #000;
+    cursor: pointer;
+    border: 3px solid;
+    padding: 0.25em 0.5em;
+    box-shadow: 1px 1px 0 0, 2px 2px 0 0, 3px 3px 0 0, 4px 4px 0 0, 5px 5px 0 0;
+    position: relative;
+}
+
+form > button:active {
+    box-shadow: 0 0 0 0;
+    top: 5px;
+    left: 5px;
+}
+
+div.mb-3 {
+    margin-top: 20px;
+    font-family: 'Lexend', sans-serif;
+    text-align: justify;
+}
+
+div.mb-3 span {
+    text-decoration: none;
+    color: #cf4038;
+}
+
+div.mb-3 span:hover {
+    text-decoration: #cf4038 wavy underline;
+}
