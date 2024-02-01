@@ -1,0 +1,18 @@
+{
+    "name": "letom/projet-msi",
+    "type": "project",
+    "require": {
+        "php-cs-fixer/shim": "^3.48"
+    },
+    "autoload": {
+        "psr-4": {
+            "Letom\\ProjetMsi\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Tom Sikora",
+            "email": "tom.sikora@etudiant.univ-reims.fr"
+        }
+    ]
+}
