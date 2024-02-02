@@ -49,14 +49,17 @@ if ($_SESSION['duree'] > 0) {
 } else {
     $total = $solde + $interet;
     $_SESSION['quinzaine'] = 1;
+    $totalarrondi = round($total, 2);
+    $interetarrondi = round($interet, 2);
+    
     $webPage->appendContent(
     <<<HTML
     <form>
             <h1 class="h3 mb-3 font-weight-normal">BILAN DES INTÉRÊTS</h1>
 
             <div class="mb-3">
-                Vous avez au total <span>{round($total, 2)} euros</span>.<br>
-                Cette année, vous avez perçu <span>{round($interet, 2)} euros</span>.
+                Vous avez au total <span>$totalarrondi euros</span>.<br>
+                Cette année, vous avez perçu <span>$interetarrondi euros</span>.
             </div>
         </form>
     HTML
