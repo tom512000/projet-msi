@@ -55,8 +55,8 @@ if ($_SESSION['duree'] > 0) {
             <h1 class="h3 mb-3 font-weight-normal">BILAN DES INTÉRÊTS</h1>
 
             <div class="mb-3">
-                Vous avez au total <span>{$total} euros</span>.<br>
-                Cette année, vous avez perçu <span>{$interet} euros</span>.
+                Vous avez au total <span>{round($total, 2)} euros</span>.<br>
+                Cette année, vous avez perçu <span>{round($interet, 2)} euros</span>.
             </div>
         </form>
     HTML
