@@ -20,6 +20,8 @@ if ($quinzaine == 1)
     $_SESSION['duree'] *= 24;
 
 if ($_SESSION['duree'] > 0) {
+    $resultarrondi = round($_SESSION['result'], 2);
+
     $webPage->appendContent(
     <<<HTML
     <form action="calcul.php" method="post">
@@ -37,7 +39,7 @@ if ($_SESSION['duree'] > 0) {
             <button type="submit">Recalculer</button>
 
             <div class="mb-3">
-                Les intérêts totaux actuels sont de <span>{$_SESSION['result']} euros</span>.<br>
+                Les intérêts totaux actuels sont de <span>{$resultarrondi} euros</span>.<br>
                 Le solde actuel est de <span>{$solde} euros</span>.
             </div>
         </form>

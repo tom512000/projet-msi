@@ -27,7 +27,7 @@ if (isset($_POST['valeurDep'], $_POST['tauxInteret'], $_POST['duree'])) {
         <<<HTML
         <form>
                 <h1 class="h3 mb-3 font-weight-normal">ERREUR</h1>
-    
+
                 <div class="mb-3">
                     Toutes les données nécessaires n'ont pas été fournies.<br><br>
                     <span>Error 204 - Not Found</span>
